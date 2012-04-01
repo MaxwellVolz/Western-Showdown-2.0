@@ -4,39 +4,37 @@
 <head>
 <script type="text/javascript">
 
-function displayDate()
+function initGame()
 {
-    document.getElementById("demo").innerHTML=Date();
-    var ss1 = document.getElementById("ss1");
-    if (!ss1)
-    {
-        ss1 = document.createElement("img");
-        ss1.id = "ss1";
-        ss1.addEventListener("click", removeImage, false);
-        document.getElementsByTagName("body")[0]
-            .appendChild(ss1);
-    }
-    ss1.src = "images/ss1.jpg";
+    var bg = document.getElementById("bgimg");
+    bg.addEventListener("click", startGame, false);
+    bg.src = "images/ss1.jpg";
 }
 
-function removeImage()
+function startGame()
 {
-    var ss1 = document.getElementById("ss1");
-    if (ss1){
-        ss1.parentNode.removeChild(ss1);
-    }
+
 }
 
 </script>
 </head>
 <body>
+<style type="text/css">
+    #bgimg
+    {
+      position:absolute;
+      left:100px;
+      top:150px;
+      z-index:-1;
+    }
+
+</style>
 
 <h1>Western Showdown 2.0</h1>
-<p id="demo">I am the time.</p>
 
-<button type="button" name="butt1" onClick="displayDate()"></button>
-
+<button type="button" name="butt1" onClick="initGame()"></button>
+<img id="bgimg">
 
 </body>
-</html> 
+</html>
 
