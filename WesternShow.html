@@ -9,11 +9,20 @@ function initGame()
     var bg = document.getElementById("bgimg");
     bg.addEventListener("click", startGame, false);
     bg.src = "images/mainMenu.jpg";
+
+    var singlePlayer = document.getElementById("singleGun");
+    singlePlayer.addEventListener("click", startGame, true);
+    singlePlayer.src = "images/1player.png";
+
+    var multiPlayer = document.getElementById("multiGun");
+    multiPlayer.addEventListener("click", startGame, true);
+    multiPlayer.src = "images/2player.png";
 }
+
 
 function startGame()
 {
-
+    console.trace("Game started.");
 }
 
 </script>
@@ -27,6 +36,20 @@ function startGame()
       top:150px;
       z-index:-1;
     }
+    #singleGun
+    {
+      position:absolute;
+      left:110px;
+      top:420px;
+      z-index:0;
+    }
+    #multiGun
+    {
+      position:absolute;
+      left:270px;
+      top:420px;
+      z-index:0;
+    }
 
 </style>
 
@@ -34,7 +57,8 @@ function startGame()
 
 <button type="button" name="butt1" onClick="initGame()"></button>
 <img id="bgimg">
-
+<img id="singleGun" button type="button" onClick="startGame()"></button>
+<img id="multiGun">
 </body>
 </html>
 
