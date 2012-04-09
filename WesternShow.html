@@ -13,16 +13,33 @@ function initGame()
     var singlePlayer = document.getElementById("singleGun");
     singlePlayer.addEventListener("click", startGame, true);
     singlePlayer.src = "images/1player.png";
+    singlePlayer.style.display="block";
 
     var multiPlayer = document.getElementById("multiGun");
     multiPlayer.addEventListener("click", startGame, true);
     multiPlayer.src = "images/2player.png";
+    multiPlayer.style.display="block";
+
+    var restartGame = document.getElementById("restartGame");
+    restartGame.style.display="none";
 }
 
 
 function startGame()
 {
+    var singlePlayer = document.getElementById("singleGun");
+    singlePlayer.style.display="none";
+    var multiPlayer = document.getElementById("multiGun");
+    multiPlayer.style.display="none";
+
     console.trace("Game started.");
+    var bg = document.getElementById("bgimg");
+    bg.src = "images/tutorial.jpg";
+
+    var restartGame = document.getElementById("restartGame");
+    restartGame.style.display="block";
+    restartGame.addEventListener("click", initGame, true);
+    restartGame.src = "images/restart.png";
 }
 
 </script>
@@ -50,6 +67,13 @@ function startGame()
       top:420px;
       z-index:0;
     }
+    #restartGame
+    {
+      position:absolute;
+      left:360px;
+      top:160px;
+      z-index:0;
+    }
 
 </style>
 
@@ -59,6 +83,7 @@ function startGame()
 <img id="bgimg">
 <img id="singleGun" button type="button" onClick="startGame()"></button>
 <img id="multiGun">
+<img id="restartGame" button type="button" onClick="initGame()"></button>
 </body>
 </html>
 
