@@ -4,8 +4,12 @@
 <head>
 <script type="text/javascript">
 
+var inCombat=0;
+
 function initGame()
 {
+    inCombat=0;
+
     var bg = document.getElementById("bgimg");
     bg.addEventListener("click", startGame, false);
     bg.src = "images/mainMenu.jpg";
@@ -40,7 +44,27 @@ function startGame()
     restartGame.style.display="block";
     restartGame.addEventListener("click", initGame, true);
     restartGame.src = "images/restart.png";
+
+    inCombat=1;
+    gameTimer();
+    
 }
+
+function gameTimer()
+{
+if(inCombat)
+{
+    var t=setTimeout("wutHapen()",4000);
+    console.trace();
+}
+}
+
+function wutHapen()
+{
+    console.trace();;
+    gameTimer();
+}
+
 
 </script>
 </head>
@@ -63,8 +87,8 @@ function startGame()
     #multiGun
     {
       position:absolute;
-      left:270px;
       top:420px;
+      left:270;
       z-index:0;
     }
     #restartGame
